@@ -75,10 +75,11 @@ def supertrend(
             dir_[i] = -1
         else:
             dir_[i] = dir_[i - 1]
-            if dir_[i] > 0 and lb.iat[i] < lb.iat[i - 1]:
-                lb.iat[i] = lb.iat[i - 1]
-            if dir_[i] < 0 and ub.iat[i] > ub.iat[i - 1]:
-                ub.iat[i] = ub.iat[i - 1]
+            
+        if dir_[i] > 0 and lb.iat[i] < lb.iat[i - 1]:
+            lb.iat[i] = lb.iat[i - 1]
+        if dir_[i] < 0 and ub.iat[i] > ub.iat[i - 1]:
+            ub.iat[i] = ub.iat[i - 1]
 
         if dir_[i] > 0:
             trend[i] = long[i] = lb.iat[i]
